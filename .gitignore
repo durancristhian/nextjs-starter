@@ -1,0 +1,7 @@
+# folders
+.next
+node_modules
+
+# files
+.env
+npm-debug.log*
