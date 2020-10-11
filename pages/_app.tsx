@@ -25,8 +25,20 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <title>nextjs-starter v{pkg.version}</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <title>nextjs-starter v{pkg.version}</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="" />
+        <meta property="twitter:url" content="" />
+        <meta property="twitter:title" content="" />
+        <meta property="twitter:description" content="" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:image" content="" />
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1,maximum-scale=1"
