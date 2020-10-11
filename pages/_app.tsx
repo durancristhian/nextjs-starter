@@ -1,11 +1,27 @@
 import { Layout } from '@components/Layout'
+import { pageview } from '@utils/gtag'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import React from 'react'
+import Router from 'next/router'
+import React, { useEffect } from 'react'
 import pkg from '../package.json'
 import '../styles/globals.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_GA_TRACKING_ID) return
+
+    const handleRouteChange = (url: string) => {
+      pageview(url)
+    }
+
+    Router.events.on('routeChangeComplete', handleRouteChange)
+
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [])
+
   return (
     <>
       <Head>
@@ -15,6 +31,26 @@ const App = ({ Component, pageProps }: AppProps) => {
           name="viewport"
           content="width=device-width,initial-scale=1,maximum-scale=1"
         />
+        {process.env.NEXT_PUBLIC_GA_TRACKING_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+              }}
+            />
+          </>
+        )}
       </Head>
       <Layout>
         <Component {...pageProps} />
