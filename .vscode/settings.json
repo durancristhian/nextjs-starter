@@ -1,4 +1,12 @@
 {
+  "colorize.languages": [
+    "css",
+    "javascript",
+    "javascriptreact",
+    "postcss",
+    "typescript",
+    "typescriptreact"
+  ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
