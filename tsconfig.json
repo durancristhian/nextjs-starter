@@ -10,10 +10,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
-    "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

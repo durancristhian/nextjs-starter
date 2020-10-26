@@ -1,11 +1,11 @@
-import { Layout } from '@components/Layout'
-import { pageview } from '@utils/gtag'
+import { Layout } from 'components/Layout'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
+import pkg from 'package.json'
 import React, { useEffect } from 'react'
-import pkg from '../package.json'
-import '../styles/globals.css'
+import 'styles/index.css'
+import { pageview } from 'utils/gtag'
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
