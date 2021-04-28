@@ -1,9 +1,5 @@
 {
   "colorize.languages": [
-    "css",
-    "javascript",
-    "javascriptreact",
-    "postcss",
     "typescript",
     "typescriptreact"
   ],
@@ -11,7 +7,7 @@
     "source.fixAll.eslint": true
   },
   "eslint.options": {
-    "extensions": [".js", ".jsx", ".ts", ".tsx"]
+    "extensions": [".css", ".js", ".json", ".md", ".ts", ".tsx"]
   },
   "eslint.validate": [
     "javascript",

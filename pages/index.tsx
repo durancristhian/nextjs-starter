@@ -1,10 +1,12 @@
+import { Heading, Stack } from '@chakra-ui/react'
 import React from 'react'
 
-export default function Index() {
+function Home() {
   return (
-    <div className="flex items-center justify-center">
-      <img src="logo.png" alt="Cremona" className="h-16 mr-4" />
-      <h1 className="font-medium text-2xl">nextjs-starter</h1>
-    </div>
+    <Stack spacing="8">
+      <Heading>nextjs-starter</Heading>
+    </Stack>
   )
 }
+
+export default Home

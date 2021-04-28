@@ -1,5 +1,4 @@
-# don't ever lint node_modules
-node_modules
-
-# don't lint build output
+.husky
 .next
+.vscode
+node_modules

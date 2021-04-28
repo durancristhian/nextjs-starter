@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { Box, Container, Link, Stack } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import React, { ReactNode } from 'react'
 
 type Props = {
@@ -7,37 +8,35 @@ type Props = {
 
 export function Layout({ children }: Props) {
   return (
-    <div className="bg-yellow-100 flex flex-col leading-normal min-h-screen">
-      <header className="bg-white border-b p-4">
-        <div className="container mx-auto w-full">
-          <div className="flex items-center justify-between">
-            <Link href="/" passHref>
-              <a href="#!" className="font-medium text-blue-700">
-                nextjs-starter
-              </a>
-            </Link>
-          </div>
-          <div></div>
-        </div>
-      </header>
-      <main className="flex-auto p-4">
-        <div className="container mx-auto w-full">{children}</div>
-      </main>
-      <footer className="bg-white border-t p-4">
-        <div className="container mx-auto w-full">
-          <p className="text-center">
-            <span>Created by </span>
-            <a
-              href="https://twitter.com/durancristhian"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-blue-700"
-            >
-              @durancristhian
-            </a>
-          </p>
-        </div>
-      </footer>
-    </div>
+    <Stack spacing="0" minHeight="100vh">
+      <Box
+        as="header"
+        py="4"
+        backgroundColor="gray.900"
+        position="fixed"
+        top="0"
+        left="0"
+        width="100%"
+        zIndex="10"
+      >
+        <Container maxW="container.xl">
+          <Stack
+            spacing="4"
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            height="40px"
+          >
+            <NextLink href="/" passHref>
+              <Link fontWeight="bold">nextjs-starter</Link>
+            </NextLink>
+          </Stack>
+        </Container>
+      </Box>
+      <Box height="72px" />
+      <Box as="main" flex="1" py="8">
+        <Container maxW="container.xl">{children}</Container>
+      </Box>
+    </Stack>
   )
 }
